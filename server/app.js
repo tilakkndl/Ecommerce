@@ -18,8 +18,7 @@ app.use((req, res, next)=>{
     next()
 })
 
-//Middleware for error handling 
-app.use(errorMiddleware)
+
 
 //Routes
 app.use("/api/v1", product)
@@ -27,7 +26,8 @@ app.use("/api/v1", product)
 
 
 
-
+//Middleware for error handling 
+app.use(errorMiddleware)
 
 
 
