@@ -65,9 +65,9 @@ exports.getAllOrders = catchAsync(async(req, res, next)=>{
 exports.updateOrder = catchAsync(async(req, res, next)=>{
     const order = await Order.findById(req.params.id)
 
-    // if(order.orderStatus==="delivered"){
-    //     return next(new AppError("You have aleady delivered the order ", 400))
-    // }
+    if(order.orderStatus==="delivered"){
+        return next(new AppError("You have aleady delivered the order ", 400))
+    }
 
     order.orderItems.forEach(async (order)=>{
         await updateStock(order.product, order.quantity)
