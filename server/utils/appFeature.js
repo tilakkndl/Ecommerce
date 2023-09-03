@@ -11,7 +11,7 @@ search (){
             $options: "i"
         } 
     }: {}
-    console.log(keyword)
+    // console.log(keyword)
     this.query = this.query.find({...keyword})
     return this;
 }
@@ -28,7 +28,7 @@ queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key)=>`$${key}`)
 
 
 this.query = this.query.find(JSON.parse(queryStr))
-console.log(queryStr)
+// console.log(queryStr)
     return this
 }
 
